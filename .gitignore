@@ -1,0 +1,8 @@
+*.swp
+*.tgz
+/dist/
+/demo/
+/docs/
+/tmp/
+/coverage/
+node_modules/

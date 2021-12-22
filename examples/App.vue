@@ -1,0 +1,77 @@
+<template>
+  <div>
+    <nav class="navbar navbar-expand-lg navbar navbar-light bg-white shadow-sm mb-3">
+      <span class="navbar-brand mb-0">SearchableSelect demo</span>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/degica/vue-searchable-select"
+             target="_blank"> GitHub</a></li>
+      </ul>
+    </nav>
+    <main class="container">
+      <div class="row">
+        <div class="col-md-8 mb-3">
+          <div class="card">
+            <form class="card-body" method="post" @submit.prevent="show">
+              <label>
+                <span>whats up</span>
+                <SearchableSelect
+                  v-model="selected"
+                  :search="search"
+                />
+              </label>
+            </form>
+          </div>
+        </div>
+
+        <aside class="col-md-4 mb-3">
+          <div class="card">
+            <div class="card-header"> Links</div>
+            <div class="card-body">
+              <ul>
+                <li><a href="https://github.com/ankurk91/vue-toast-notification" target="_blank">GitHub</a></li>
+                <li><a href="https://www.npmjs.com/package/vue-toast-notification" target="_blank">npm</a></li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+    <footer class="text-center text-muted small mb-3">
+      Copyright © 2021 Degica
+    </footer>
+  </div>
+</template>
+
+<script>
+import SearchableSelect from '../src/index.js';
+
+export default {
+  name: 'app',
+  data() {
+    return {
+    }
+  },
+  components: { SearchableSelect },
+  methods: {
+    search(query, page) {
+      console.log("Starting mock search of", query);
+      return new Promise((resolve, _) => {
+        setTimeout(
+          () => {
+            resolve([
+              page * 10 + 0,
+              page * 10 + 1,
+              page * 10 + 2,
+              page * 10 + 3,
+              page * 10 + 4,
+              page * 10 + 5,
+            ].map(x => `${query} ${x}`));
+          },
+          2000
+        );
+      });
+    }
+  }
+}
+</script>
