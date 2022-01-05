@@ -30,6 +30,9 @@
                 </select>
               </label>
             </form>
+
+            Selected:
+            <pre>{{ selected }}</pre>
           </div>
         </div>
 
@@ -59,6 +62,7 @@ export default {
   name: 'app',
   data() {
     return {
+      selected: null
     }
   },
   components: { SearchableSelect },
@@ -76,7 +80,7 @@ export default {
                 page * 10 + 3,
                 page * 10 + 4,
                 page * 10 + 5,
-              ].map(x => ({ value: `${x}`, text: `:) ${query}${x}` })));
+              ].map(x => ({ value: `${x}`, text: `${query.toUpperCase()} ${x}` })));
             },
             2000
           );

@@ -5,16 +5,16 @@
       form submission. In most cases, one can simply pull the value out with
       v-model="myVar".
     -->
-    <input type="hidden" :value="selectedValue" />
+    <input v-if="name" type="hidden" :name="name" :value="selectedValue" />
 
     <!--
-      This is the query input box. It's different from the "display" input box
-      which will appear when blurred.
+      This is the query input box. It's different from the "display" input box.
+      The "display" box above will be shown when this "query" box is blurred.
     -->
     <input
-      v-if="showOptions"
       type="text"
       v-model="query"
+      :style="showOptions ? {} : { display: 'none' }"
       @keydown="inputKeyHandler($event)"
       @focus="inputFocusHandler($event)"
       @blur="inputBlurHandler($event)"
@@ -27,11 +27,16 @@
       input box will take its place.
     -->
     <input
-      v-else
       type="text"
       :value="selectedDisplay"
+      :style="showOptions ? { display: 'none' } : {}"
       @focus="showOptions = true"
     />
+
+    <!--
+      This caret is just eye candy, signalling that this is a select box.
+    -->
+    <!-- TODO -->
 
     <!--
       This ul tag is the options tray. There's a lot of wacky logic in the
@@ -43,7 +48,7 @@
         <button
           :class="buttonClass(i)"
           @mouseover="hoverIndex = i"
-          @click="selectedIndex = i; showOptions = false"
+          @click="buttonClicked(i)"
         >
           <span v-if="option.text">
             {{ option.text }}
@@ -72,6 +77,10 @@ export default defineComponent({
       type: Function,
       required: true
     },
+    name: {
+      type: String,
+      required: false
+    },
     debounceTime: {
       type: Number,
       default: 200
@@ -88,6 +97,11 @@ export default defineComponent({
         classes.push('vue-searchable-select-hover');
       }
       return classes;
+    },
+
+    async buttonClicked(i) {
+      this.selectedIndex = i;
+      this.showOptions = false;
     }
   },
   watch: {
@@ -111,7 +125,9 @@ export default defineComponent({
       this.ignoreFocus = false;
     },
 
+    // This scrolls to the currently-selected option when the tray is opened.
     async showOptions(value) {
+      console.log('updated', value);
       if (!value) return;
 
       await this.$nextTick();
@@ -123,7 +139,7 @@ export default defineComponent({
       this.$refs.searchInput.focus();
     }
   },
-  setup(props) {
+  setup(props, { emit }) {
     // This is the current search results; the selectable options displayed to
     // the user.
     const options = ref([]);
@@ -133,9 +149,6 @@ export default defineComponent({
 
     // Index of the currently selected element.
     const selectedIndex = ref(null);
-
-    // This is whether or not the options tray is displayed.
-    const showOptions = ref(false);
 
     // Raw selected object. Might be a string value or an object with 'value' and 'text' keys.
     const selected = computed(() => (
@@ -162,6 +175,8 @@ export default defineComponent({
       if (hoverIndex.value >= value.length) hoverIndex.value = 0
     });
 
+    watch(selectedValue, value => emit('update:modelValue', value));
+
     // This will be called whenever the user input changes. It's debounced so
     // that we don't perform IO-heavy search operations too often.
     const debouncedSearch = debounce(
@@ -182,8 +197,8 @@ export default defineComponent({
     // This is the search query that the user types in.
     // Whenever it's changed, we update the search promise.
     const query = ref(
-      typeof(props.modelValue) === 'object' ?
-        props.modelValue['text'] : props.modalValue
+      props.modelValue && typeof(props.modelValue) === 'object' ?
+        props.modelValue['text'] : props.modelValue
     );
     watch(query, value => {
       selectedIndex.value = null;
@@ -203,11 +218,15 @@ export default defineComponent({
     let pagePromise = null;
     const scrollHandler = event => {
       if (pagePromise !== null) return;
-      if (event.target.scrollTop < event.target.scrollTopMax - 30) return;
+      const scrollMax = event.target.scrollHeight - event.target.offsetHeight;
+      if (event.target.scrollTop < scrollMax - 80) return;
 
       pagePromise = nextPage();
       pagePromise.then(() => pagePromise = null);
     };
+
+    // This is whether or not the options tray is displayed.
+    const showOptions = ref(false);
 
     // This function handles keyboard input - up and down arrows will be used
     // to select next and previous options.
@@ -242,7 +261,7 @@ export default defineComponent({
       }
     };
 
-    // This is called when the user focuses the text input.
+    // This is called when the user focuses the "display" text input.
     // Mainly, we want to show the search dropdown.
     // Also we can pre-populate the search results if necessary.
     let deselectTimer = null;
@@ -253,6 +272,8 @@ export default defineComponent({
         deselectTimer = null;
       }
       if (ignoreFocus.value) return;
+
+      console.log("showOptions = true because of focus");
       showOptions.value = true;
 
       if (options.value.length === 0) {
