@@ -36,7 +36,7 @@
     <!--
       This caret is just eye candy, signalling that this is a select box.
     -->
-    <!-- TODO -->
+    <Caret @click="showOptions = true" />
 
     <!--
       This ul tag is the options tray. There's a lot of wacky logic in the
@@ -63,11 +63,13 @@
 </template>
 
 <script>
+import Caret from './Caret.vue';
 import { defineComponent, watch, ref, computed } from 'vue';
 import debounce from 'lodash.debounce';
 
 export default defineComponent({
   name: 'search-select',
+  components: { Caret },
   props: {
     modelValue: {
       type: [Object, String],
@@ -157,7 +159,12 @@ export default defineComponent({
 
     // This is the "value" of the selected object.
     const selectedValue = computed(() => {
-      if (selected.value && typeof(selected.value) === 'object')
+      if (selectedIndex.value === null)
+        if (props.modelValue && typeof(props.modelValue) === 'object')
+          return props.modelValue['value'];
+        else
+          return props.modelValue;
+      else if (selected.value && typeof(selected.value) === 'object')
         return selected.value.value;
       else
         return selected.value;
@@ -165,7 +172,12 @@ export default defineComponent({
 
     // This is the user-facing display text of the selected object.
     const selectedDisplay = computed(() => {
-      if (selected.value && typeof(selected.value) === 'object')
+      if (selectedIndex.value === null)
+        if (props.modelValue && typeof(props.modelValue) === 'object')
+          return props.modelValue['text'];
+        else
+          return props.modelValue;
+      else if (selected.value && typeof(selected.value) === 'object')
         return selected.value.text;
       else
         return selected.value;

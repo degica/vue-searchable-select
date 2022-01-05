@@ -1,6 +1,10 @@
 .vue-searchable-select {
   position: relative;
 
+  input {
+    width: 100%;
+  }
+
   ul {
     position: absolute;
 
@@ -41,4 +45,13 @@
   span {
     background-color: #D1E6F8;
   }
+}
+
+.vue-searchable-select-caret {
+  position: absolute;
+
+  cursor: pointer;
+
+  right: 10px;
+  top: 10px;
 }

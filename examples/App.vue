@@ -55,6 +55,23 @@
   </div>
 </template>
 
+<style>
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  display: flex;
+  flex-direction: row;
+}
+
+label > * {
+  margin: 5px;
+  justify-content: center;
+}
+</style>
+
 <script>
 import SearchableSelect from '../src/index.js';
 
@@ -62,7 +79,7 @@ export default {
   name: 'app',
   data() {
     return {
-      selected: null
+      selected: { value: '??', text: 'type something!' }
     }
   },
   components: { SearchableSelect },
@@ -95,7 +112,7 @@ export default {
                 page * 10 + 3,
                 page * 10 + 4,
                 page * 10 + 5,
-              ].map(x => `<NOTHING> ${x}`));
+              ].map(x => `<nothing> ${x}`));
             },
             500
           );
