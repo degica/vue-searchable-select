@@ -1,0 +1,44 @@
+.vue-searchable-select {
+  position: relative;
+
+  ul {
+    position: absolute;
+
+    background: white;
+
+    overflow-y: scroll;
+    max-height: 150px;
+    left: 0;
+    right: 0;
+    list-style: none;
+    padding: 0;
+    border: 1px solid grey;
+    border-top: none;
+    border-radius: 2px;
+  }
+
+  button {
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+
+    span {
+      display: inline-block;
+      width: 100%;
+      border-radius: 2px;
+    }
+  }
+}
+
+.vue-searchable-select-hover {
+  span {
+    background-color: #F3F7F9;
+  }
+}
+
+.vue-searchable-select-selected {
+  span {
+    background-color: #D1E6F8;
+  }
+}

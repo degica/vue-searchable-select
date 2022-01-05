@@ -20,6 +20,15 @@
                   :search="search"
                 />
               </label>
+
+              <label>
+                test vanilla
+                <select>
+                  <option>one</option>
+                  <option>two</option>
+                  <option>three</option>
+                </select>
+              </label>
             </form>
           </div>
         </div>
@@ -55,21 +64,38 @@ export default {
   components: { SearchableSelect },
   methods: {
     search(query, page) {
-      console.log("Starting mock search of", query);
+      console.log("Starting mock search of", query, 'page', page);
       return new Promise((resolve, _) => {
-        setTimeout(
-          () => {
-            resolve([
-              page * 10 + 0,
-              page * 10 + 1,
-              page * 10 + 2,
-              page * 10 + 3,
-              page * 10 + 4,
-              page * 10 + 5,
-            ].map(x => `${query} ${x}`));
-          },
-          2000
-        );
+        if (query) {
+          setTimeout(
+            () => {
+              resolve([
+                page * 10 + 0,
+                page * 10 + 1,
+                page * 10 + 2,
+                page * 10 + 3,
+                page * 10 + 4,
+                page * 10 + 5,
+              ].map(x => ({ value: `${x}`, text: `:) ${query}${x}` })));
+            },
+            2000
+          );
+        }
+        else {
+          setTimeout(
+            () => {
+              resolve([
+                page * 10 + 0,
+                page * 10 + 1,
+                page * 10 + 2,
+                page * 10 + 3,
+                page * 10 + 4,
+                page * 10 + 5,
+              ].map(x => `<NOTHING> ${x}`));
+            },
+            500
+          );
+        }
       });
     }
   }

@@ -3,7 +3,7 @@
 import {createApp} from 'vue';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../src/themes/komoju/index.scss'
+import '../src/themes/default/index.scss'
 
 import App from './App.vue';
 

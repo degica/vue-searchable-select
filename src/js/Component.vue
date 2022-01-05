@@ -1,42 +1,73 @@
 <template>
   <div class='vue-searchable-select'>
+    <!--
+      This is for just in case the consumer needs to perform vanilla HTML
+      form submission. In most cases, one can simply pull the value out with
+      v-model="myVar".
+    -->
+    <input type="hidden" :value="selectedValue" />
+
+    <!--
+      This is the query input box. It's different from the "display" input box
+      which will appear when blurred.
+    -->
     <input
+      v-if="showOptions"
       type="text"
       v-model="query"
-      @keydown="keyHandler($event)"
-      ref="input"
+      @keydown="inputKeyHandler($event)"
+      @focus="inputFocusHandler($event)"
+      @blur="inputBlurHandler($event)"
+      ref="searchInput"
     />
-    <ul @scroll="scrollHandler($event)">
-      <li v-for="option, i in options" :key=option>
-        <button ref="selected" v-if="i == selectedIndex">
-          <span class='vue-searchable-select-selected'>{{ option }}</span>
-        </button>
-        <button v-else @click="selectedIndex = i">
-          {{ option }}
+
+    <!--
+      This is the aforementioned "display" input box. It only exists to show
+      the selected value. As soon as the user clicks this, the above "query"
+      input box will take its place.
+    -->
+    <input
+      v-else
+      type="text"
+      :value="selectedDisplay"
+      @focus="showOptions = true"
+    />
+
+    <!--
+      This ul tag is the options tray. There's a lot of wacky logic in the
+      script section that makes this behave more-or-less like a real select
+      full of options.
+    -->
+    <ul v-if="showOptions" @scroll="scrollHandler($event)">
+      <li v-for="option, i in options" :key="option.value ? option.value : option">
+        <button
+          :class="buttonClass(i)"
+          @mouseover="hoverIndex = i"
+          @click="selectedIndex = i; showOptions = false"
+        >
+          <span v-if="option.text">
+            {{ option.text }}
+          </span>
+          <span v-else>
+            {{ option }}
+          </span>
         </button>
       </li>
     </ul>
   </div>
 </template>
 
-<style>
-.vue-searchable-select ul {
-  overflow-y: scroll;
-  height: 100px;
-}
-
-.vue-searchable-select-selected {
-  background-color: red;
-}
-</style>
-
 <script>
-import { defineComponent, watch, reactive, ref, computed } from 'vue';
+import { defineComponent, watch, ref, computed } from 'vue';
 import debounce from 'lodash.debounce';
 
 export default defineComponent({
   name: 'search-select',
   props: {
+    modelValue: {
+      type: [Object, String],
+      required: true
+    },
     search: {
       type: Function,
       required: true
@@ -44,28 +75,91 @@ export default defineComponent({
     debounceTime: {
       type: Number,
       default: 200
+    },
+  },
+  emits: ['update:modelValue'],
+  methods: {
+    buttonClass(i) {
+      const classes = [];
+      if (i === this.selectedIndex) {
+        classes.push('vue-searchable-select-selected');
+      }
+      if (i === this.hoverIndex) {
+        classes.push('vue-searchable-select-hover');
+      }
+      return classes;
     }
   },
   watch: {
-    async selectedIndex() {
-      // This scrolls the UL to a point where we can actually see the selected
-      // list item.
+    // This scrolls the UL to a point where we can actually see the selected
+    // list item.
+    //
+    // It's a bit hacky, but far simpler than performing arithmetic and using
+    // manual scroll functions.
+    async hoverIndex() {
+      this.ignoreFocus = true;
+
       await this.$nextTick();
-      this.$refs.selected.focus();
+      // TODO: this will break w/ multiple components in one page...
+      const hovered = document.getElementsByClassName('vue-searchable-select-hover')[0];
+      if (hovered) { hovered.focus(); }
+
       await this.$nextTick();
-      this.$refs.input.focus();
+      this.$refs.searchInput.focus();
+
+      await this.$nextTick();
+      this.ignoreFocus = false;
+    },
+
+    async showOptions(value) {
+      if (!value) return;
+
+      await this.$nextTick();
+      // TODO: this will break w/ multiple components in one page...
+      const selected = document.getElementsByClassName('vue-searchable-select-selected')[0];
+      if (selected) { selected.focus(); }
+
+      await this.$nextTick();
+      this.$refs.searchInput.focus();
     }
   },
   setup(props) {
     // This is the current search results; the selectable options displayed to
     // the user.
     const options = ref([]);
-    const selectedIndex = ref(0);
+
+    // Index of the currently hovered element. Pressing "enter" will select it.
+    const hoverIndex = ref(0);
+
+    // Index of the currently selected element.
+    const selectedIndex = ref(null);
+
+    // This is whether or not the options tray is displayed.
+    const showOptions = ref(false);
+
+    // Raw selected object. Might be a string value or an object with 'value' and 'text' keys.
     const selected = computed(() => (
-      selectedIndex.value ? options.value[selectedIndex.value] : null
+      typeof(selectedIndex.value) === 'number' ? options.value[selectedIndex.value] : null
     ));
+
+    // This is the "value" of the selected object.
+    const selectedValue = computed(() => {
+      if (selected.value && typeof(selected.value) === 'object')
+        return selected.value.value;
+      else
+        return selected.value;
+    });
+
+    // This is the user-facing display text of the selected object.
+    const selectedDisplay = computed(() => {
+      if (selected.value && typeof(selected.value) === 'object')
+        return selected.value.text;
+      else
+        return selected.value;
+    });
+
     watch(options, value => {
-      if (selectedIndex.value >= value.length) selectedIndex.value = 0
+      if (hoverIndex.value >= value.length) hoverIndex.value = 0
     });
 
     // This will be called whenever the user input changes. It's debounced so
@@ -87,8 +181,12 @@ export default defineComponent({
 
     // This is the search query that the user types in.
     // Whenever it's changed, we update the search promise.
-    const query = ref('');
+    const query = ref(
+      typeof(props.modelValue) === 'object' ?
+        props.modelValue['text'] : props.modalValue
+    );
     watch(query, value => {
+      selectedIndex.value = null;
       debouncedSearch(value, 1);
       currentPage = 1;
     });
@@ -113,27 +211,88 @@ export default defineComponent({
 
     // This function handles keyboard input - up and down arrows will be used
     // to select next and previous options.
-    const keyHandler = event => {
+    // Also supports "enter" for selecting the currently hovered option.
+    const inputKeyHandler = event => {
       switch (event.code) {
         case 'ArrowUp':
           event.preventDefault();
-          if (selectedIndex.value > 0) selectedIndex.value -= 1;
+          if (hoverIndex.value > 0) hoverIndex.value -= 1;
           break;
 
         case 'ArrowDown':
           event.preventDefault();
-          if (selectedIndex.value < options.value.length-1) selectedIndex.value += 1;
+          if (hoverIndex.value < options.value.length-1) hoverIndex.value += 1;
+          break;
+
+        case 'PageUp':
+          event.preventDefault();
+          hoverIndex.value = Math.max(0, hoverIndex.value - 20);
+          break;
+
+        case 'PageDown':
+          event.preventDefault();
+          hoverIndex.value = Math.min(options.value.length - 1, hoverIndex.value + 20);
+          break;
+
+        case 'Enter':
+          event.preventDefault();
+          selectedIndex.value = hoverIndex.value;
+          showOptions.value = false;
           break;
       }
+    };
+
+    // This is called when the user focuses the text input.
+    // Mainly, we want to show the search dropdown.
+    // Also we can pre-populate the search results if necessary.
+    let deselectTimer = null;
+    const ignoreFocus = ref(false);
+    const inputFocusHandler = () => {
+      if (deselectTimer) {
+        clearTimeout(deselectTimer);
+        deselectTimer = null;
+      }
+      if (ignoreFocus.value) return;
+      showOptions.value = true;
+
+      if (options.value.length === 0) {
+        debouncedSearch(query.value, 1);
+        currentPage = 1;
+      }
+    };
+
+    // Close the options tray on blur - after a delay.
+    // We need the delay because the query input gets blurred quite a lot during
+    // regular use.
+    // There's no one event to reliably detect when it's blurred "for real".
+    const inputBlurHandler = event => {
+      if (deselectTimer) {
+        clearTimeout(deselectTimer);
+        deselectTimer = null;
+      }
+
+      deselectTimer = setTimeout(() => {
+        if (document.activeElement !== event.target) {
+          showOptions.value = false;
+        }
+      }, 500);
     };
 
     // Values exposed to the template:
     return {
       query,
+      selected,
       options,
+      showOptions,
+      hoverIndex,
+      selectedIndex,
+      selectedValue,
+      selectedDisplay,
+      ignoreFocus,
       scrollHandler,
-      keyHandler,
-      selectedIndex
+      inputKeyHandler,
+      inputFocusHandler,
+      inputBlurHandler,
     };
   }
 })
