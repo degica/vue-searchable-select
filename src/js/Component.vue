@@ -199,7 +199,7 @@ export default defineComponent({
     // that we don't perform IO-heavy search operations too often.
     const debouncedSearch = debounce(
       async (query, page) => {
-        options.value = await props.search(query, page);
+        options.value = await props.search(query || '', page);
       },
       props.debounceTime,
       {
@@ -209,8 +209,8 @@ export default defineComponent({
     );
 
     // This is the current page. It will increment when the user scrolls down.
-    // When the search query is modified, it will be set back to 1.
-    let currentPage = 1;
+    // When the search query is modified, it will be set back to 0.
+    let currentPage = 0;
 
     // This is the search query that the user types in.
     // Whenever it's changed, we update the search promise.
@@ -220,8 +220,8 @@ export default defineComponent({
     );
     watch(query, value => {
       selectedIndex.value = null;
-      debouncedSearch(value, 1);
-      currentPage = 1;
+      debouncedSearch(value, 0);
+      currentPage = 0;
     });
 
     // This is called when the user scrolls to the bottom.
@@ -306,8 +306,8 @@ export default defineComponent({
       showOptions.value = true;
 
       if (options.value.length === 0) {
-        debouncedSearch(query.value, 1);
-        currentPage = 1;
+        debouncedSearch(query.value, 0);
+        currentPage = 0;
       }
     };
 
