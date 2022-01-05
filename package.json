@@ -1,9 +1,9 @@
 {
   "name": "vue-searchable-select",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Pure Vue3 version of the 'searchable select box' widget",
   "main": "dist/index.js",
-  "types": "./types/toast.d.ts",
+  "types": "./types/searchable-select.d.ts",
   "browser": "dist/index.min.js",
   "style": "dist/theme-default.css",
   "files": [
@@ -17,10 +17,11 @@
   },
   "keywords": [
     "vue",
-    "toast",
-    "growl",
-    "notice",
-    "notification"
+    "select",
+    "select2",
+    "search",
+    "searchable",
+    "dropdown"
   ],
   "author": "Nigel Baillie <nbaillie@degica.com>",
   "license": "MIT",
@@ -29,7 +30,7 @@
   },
   "homepage": "https://github.com/degica/vue-toast-notification",
   "scripts": {
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "test:watch": "yarn run test --watch --notify",
     "start": "yarn run dev",
     "dev": "cross-env NODE_ENV=development webpack serve --hot --config=webpack.config.dev.js",

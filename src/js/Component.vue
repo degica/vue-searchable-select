@@ -229,7 +229,7 @@ export default defineComponent({
     watch(query, () => lastPageEmpty = false);
     const nextPage = async () => {
       currentPage += 1;
-      const results = await props.search(query.value, currentPage);
+      const results = await props.search(query.value || '', currentPage);
 
       if (results.length == 0) {
         // We don't want to search anymore if we hit an empty page.

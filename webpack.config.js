@@ -23,8 +23,6 @@ module.exports = {
     index: './src/index.js',
     'index.min': './src/index.js',
     'theme-default': './src/themes/default/index.scss',
-    'theme-sugar': './src/themes/sugar/index.scss',
-    'theme-komoju': './src/themes/komoju/index.scss',
   },
   externals: {
     'vue': {
@@ -37,7 +35,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
-    library: 'VueToast',
+    library: 'VueSearchableSelect',
     libraryTarget: 'umd',
     libraryExport: 'default',
     umdNamedDefine: true,
