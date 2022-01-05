@@ -104,6 +104,10 @@ export default defineComponent({
     async buttonClicked(i) {
       this.selectedIndex = i;
       this.showOptions = false;
+    },
+
+    parentElement() {
+      return this.$refs.searchInput.closest('.vue-searchable-select');
     }
   },
   watch: {
@@ -116,8 +120,9 @@ export default defineComponent({
       this.ignoreFocus = true;
 
       await this.$nextTick();
-      // TODO: this will break w/ multiple components in one page...
-      const hovered = document.getElementsByClassName('vue-searchable-select-hover')[0];
+      const hovered = this
+        .parentElement()
+        .getElementsByClassName('vue-searchable-select-hover')[0];
       if (hovered) { hovered.focus(); }
 
       await this.$nextTick();
@@ -133,8 +138,9 @@ export default defineComponent({
       if (!value) return;
 
       await this.$nextTick();
-      // TODO: this will break w/ multiple components in one page...
-      const selected = document.getElementsByClassName('vue-searchable-select-selected')[0];
+      const selected = this
+        .parentElement()
+        .getElementsByClassName('vue-searchable-select-selected')[0];
       if (selected) { selected.focus(); }
 
       await this.$nextTick();
