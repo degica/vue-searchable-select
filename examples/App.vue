@@ -99,7 +99,7 @@ export default {
                 page * 10 + 5,
               ].map(x => ({ value: `${x}`, text: `${query.toUpperCase()} ${x}` })));
             },
-            2000
+            1000
           );
         }
         else {
@@ -114,7 +114,7 @@ export default {
                 page * 10 + 5,
               ].map(x => `<nothing> ${x}`));
             },
-            500
+            200
           );
         }
       });
