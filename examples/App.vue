@@ -88,6 +88,7 @@ export default {
       console.log("Starting mock search of", query, 'page', page);
       return new Promise((resolve, _) => {
         if (query) {
+          if (page >= 10) return resolve([]);
           setTimeout(
             () => {
               resolve([

@@ -225,10 +225,19 @@ export default defineComponent({
     });
 
     // This is called when the user scrolls to the bottom.
+    let lastPageEmpty = false;
+    watch(query, () => lastPageEmpty = false);
     const nextPage = async () => {
       currentPage += 1;
       const results = await props.search(query.value, currentPage);
-      options.value = options.value.concat(results);
+
+      if (results.length == 0) {
+        // We don't want to search anymore if we hit an empty page.
+        lastPageEmpty = true;
+      }
+      else {
+        options.value = options.value.concat(results);
+      }
     };
 
     // This function will handle the 'scroll' event for the options list.
@@ -236,6 +245,8 @@ export default defineComponent({
     let pagePromise = null;
     const scrollHandler = event => {
       if (pagePromise !== null) return;
+      if (lastPageEmpty) return;
+
       const scrollMax = event.target.scrollHeight - event.target.offsetHeight;
       if (event.target.scrollTop < scrollMax - 80) return;
 
