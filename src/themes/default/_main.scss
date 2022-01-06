@@ -3,6 +3,7 @@
 
   input {
     width: 100%;
+    padding-right: 27px;
   }
 
   ul {
@@ -45,6 +46,10 @@
   span {
     background-color: #D1E6F8;
   }
+}
+
+.vue-searchable-select-no-results {
+  font-style: italic;
 }
 
 .vue-searchable-select-caret {

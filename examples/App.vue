@@ -6,6 +6,8 @@
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/degica/vue-searchable-select"
              target="_blank"> GitHub</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="/vueless.html"> No Vue app</a></li>
       </ul>
     </nav>
     <main class="container">
@@ -87,7 +89,10 @@ export default {
     search(query, page) {
       console.log("Starting mock search of", query, 'page', page);
       return new Promise((resolve, _) => {
-        if (query) {
+        if (query === 'empty') {
+          setTimeout(() => resolve([]), 500);
+        }
+        else if (query) {
           if (page >= 10) return resolve([]);
           setTimeout(
             () => {
