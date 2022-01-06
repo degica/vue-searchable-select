@@ -1,6 +1,6 @@
 (self["webpackChunkvue_searchable_select"] = self["webpackChunkvue_searchable_select"] || []).push([[179],{
 
-/***/ 192:
+/***/ 582:
 /***/ ((__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -56,32 +56,32 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 }
 ;// CONCATENATED MODULE: ./examples/App.vue?vue&type=template&id=bab500c0
 
-;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[6].use[0]!./src/js/Component.vue?vue&type=template&id=ec23dd3a
+;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[6].use[0]!./src/js/Component.vue?vue&type=template&id=bcfa7414
 
-const Componentvue_type_template_id_ec23dd3a_hoisted_1 = {
+const Componentvue_type_template_id_bcfa7414_hoisted_1 = {
   class: "vue-searchable-select"
 };
-const Componentvue_type_template_id_ec23dd3a_hoisted_2 = {
+const Componentvue_type_template_id_bcfa7414_hoisted_2 = {
   key: 0
 };
-const Componentvue_type_template_id_ec23dd3a_hoisted_3 = {
+const Componentvue_type_template_id_bcfa7414_hoisted_3 = {
   key: 1
 };
-const Componentvue_type_template_id_ec23dd3a_hoisted_4 = {
+const Componentvue_type_template_id_bcfa7414_hoisted_4 = {
   key: 0
 };
-const Componentvue_type_template_id_ec23dd3a_hoisted_5 = {
+const Componentvue_type_template_id_bcfa7414_hoisted_5 = {
   key: 1,
   class: "vue-searchable-select-no-results"
 };
-function Componentvue_type_template_id_ec23dd3a_render(_ctx, _cache, $props, $setup, $data, $options) {
+function Componentvue_type_template_id_bcfa7414_render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ClearX = (0,runtime_core_esm_bundler/* resolveComponent */.up)("ClearX");
 
   const _component_Caret = (0,runtime_core_esm_bundler/* resolveComponent */.up)("Caret");
 
   const _component_Loading = (0,runtime_core_esm_bundler/* resolveComponent */.up)("Loading");
 
-  return (0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("div", Componentvue_type_template_id_ec23dd3a_hoisted_1, [_ctx.name ? ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("input", {
+  return (0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("div", Componentvue_type_template_id_bcfa7414_hoisted_1, [_ctx.name ? ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("input", {
     key: 0,
     type: "hidden",
     name: _ctx.name,
@@ -120,10 +120,10 @@ function Componentvue_type_template_id_ec23dd3a_render(_ctx, _cache, $props, $se
       class: _ctx.buttonClass(i),
       onMouseover: $event => _ctx.hoverIndex = i,
       onClick: $event => _ctx.buttonClicked(i)
-    }, [option.text ? ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("span", Componentvue_type_template_id_ec23dd3a_hoisted_2, (0,shared_esm_bundler/* toDisplayString */.zw)(option.text), 1)) : ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("span", Componentvue_type_template_id_ec23dd3a_hoisted_3, (0,shared_esm_bundler/* toDisplayString */.zw)(option), 1))], 42, ["onMouseover", "onClick"])]);
-  }), 128)), _ctx.searchesInProgress > 0 ? ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("li", Componentvue_type_template_id_ec23dd3a_hoisted_4, [(0,runtime_core_esm_bundler/* createVNode */.Wm)(_component_Loading)])) : _ctx.options.length === 0 ? ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("li", Componentvue_type_template_id_ec23dd3a_hoisted_5, [(0,runtime_core_esm_bundler/* createVNode */.Wm)("span", null, (0,shared_esm_bundler/* toDisplayString */.zw)(_ctx.noResultsMessage()), 1)])) : (0,runtime_core_esm_bundler/* createCommentVNode */.kq)("", true)], 32)) : (0,runtime_core_esm_bundler/* createCommentVNode */.kq)("", true)]);
+    }, [option.text ? ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("span", Componentvue_type_template_id_bcfa7414_hoisted_2, (0,shared_esm_bundler/* toDisplayString */.zw)(option.text), 1)) : ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("span", Componentvue_type_template_id_bcfa7414_hoisted_3, (0,shared_esm_bundler/* toDisplayString */.zw)(option), 1))], 42, ["onMouseover", "onClick"])]);
+  }), 128)), _ctx.searchesInProgress > 0 ? ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("li", Componentvue_type_template_id_bcfa7414_hoisted_4, [(0,runtime_core_esm_bundler/* createVNode */.Wm)(_component_Loading)])) : _ctx.options.length === 0 ? ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("li", Componentvue_type_template_id_bcfa7414_hoisted_5, [(0,runtime_core_esm_bundler/* createVNode */.Wm)("span", null, (0,shared_esm_bundler/* toDisplayString */.zw)(_ctx.noResultsMessage()), 1)])) : (0,runtime_core_esm_bundler/* createCommentVNode */.kq)("", true)], 32)) : (0,runtime_core_esm_bundler/* createCommentVNode */.kq)("", true)]);
 }
-;// CONCATENATED MODULE: ./src/js/Component.vue?vue&type=template&id=ec23dd3a
+;// CONCATENATED MODULE: ./src/js/Component.vue?vue&type=template&id=bcfa7414
 
 ;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[6].use[0]!./src/js/Caret.vue?vue&type=template&id=f2ad39b0
 
@@ -375,7 +375,11 @@ var lodash_debounce_default = /*#__PURE__*/__webpack_require__.n(lodash_debounce
     const selectedIndex = (0,reactivity_esm_bundler/* ref */.iH)(null); // Raw selected object. Might be a string value or an object with 'value' and 'text' keys.
 
     const selected = (0,runtime_core_esm_bundler/* computed */.Fl)(() => {
-      if (typeof selectedIndex.value === 'number') return options.value[selectedIndex.value];else return props.modelValue;
+      if (typeof selectedIndex.value === 'number' && selectedIndex.value < options.value.length) {
+        return options.value[selectedIndex.value];
+      } else {
+        return props.modelValue;
+      }
     });
     (0,runtime_core_esm_bundler/* watch */.YP)(selected, value => emit('update:modelValue', value)); // This is the "value" of the selected object.
 
@@ -556,7 +560,7 @@ var lodash_debounce_default = /*#__PURE__*/__webpack_require__.n(lodash_debounce
 
 
 
-Componentvue_type_script_lang_js.render = Componentvue_type_template_id_ec23dd3a_render
+Componentvue_type_script_lang_js.render = Componentvue_type_template_id_bcfa7414_render
 
 /* harmony default export */ const Component = (Componentvue_type_script_lang_js);
 ;// CONCATENATED MODULE: ./src/index.js
@@ -570,12 +574,12 @@ function searchableSelectInit(searchFunctions) {
     const appContainer = document.createElement('div');
     const search = searchFunctions[element.dataset.searchableSelect];
     const name = element.name;
-    const modelValue = (0,reactivity_esm_bundler/* ref */.iH)(null);
+    let modelValue = null;
 
     try {
-      modelValue.value = JSON.parse(element.value);
+      modelValue = JSON.parse(element.value);
     } catch (_) {
-      modelValue.value = element.value;
+      modelValue = element.value;
     }
 
     const app = (0,runtime_dom_esm_bundler/* createApp */.ri)(Component, {
@@ -702,7 +706,7 @@ if (document.getElementById('app')) {
 /******/ "use strict";
 /******/ 
 /******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-/******/ __webpack_require__.O(0, [736], () => (__webpack_exec__(192)));
+/******/ __webpack_require__.O(0, [736], () => (__webpack_exec__(582)));
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ }
 ]);
