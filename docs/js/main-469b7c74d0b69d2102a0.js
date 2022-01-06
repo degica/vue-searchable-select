@@ -1,6 +1,6 @@
 (self["webpackChunkvue_searchable_select"] = self["webpackChunkvue_searchable_select"] || []).push([[179],{
 
-/***/ 920:
+/***/ 192:
 /***/ ((__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -11,10 +11,10 @@ var runtime_dom_esm_bundler = __webpack_require__(963);
 var runtime_core_esm_bundler = __webpack_require__(252);
 // EXTERNAL MODULE: ./node_modules/@vue/shared/dist/shared.esm-bundler.js
 var shared_esm_bundler = __webpack_require__(577);
-;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[6].use[0]!./examples/App.vue?vue&type=template&id=6be827c8
+;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[6].use[0]!./examples/App.vue?vue&type=template&id=bab500c0
 
 
-const _hoisted_1 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createStaticVNode */.uE)("<nav class=\"navbar navbar-expand-lg navbar navbar-light bg-white shadow-sm mb-3\"><span class=\"navbar-brand mb-0\">SearchableSelect demo</span><ul class=\"navbar-nav ml-auto\"><li class=\"nav-item\"><a class=\"nav-link\" href=\"https://github.com/degica/vue-searchable-select\" target=\"_blank\"> GitHub</a></li></ul></nav>", 1);
+const _hoisted_1 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createStaticVNode */.uE)("<nav class=\"navbar navbar-expand-lg navbar navbar-light bg-white shadow-sm mb-3\"><span class=\"navbar-brand mb-0\">SearchableSelect demo</span><ul class=\"navbar-nav ml-auto\"><li class=\"nav-item\"><a class=\"nav-link\" href=\"https://github.com/degica/vue-searchable-select\" target=\"_blank\"> GitHub</a></li><li class=\"nav-item\"><a class=\"nav-link\" href=\"/vueless.html\"> No Vue app</a></li></ul></nav>", 1);
 
 const _hoisted_2 = {
   class: "container"
@@ -54,25 +54,34 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     search: $options.search
   }, null, 8, ["modelValue", "search"])]), _hoisted_7], 32), _hoisted_8, (0,runtime_core_esm_bundler/* createVNode */.Wm)("pre", null, (0,shared_esm_bundler/* toDisplayString */.zw)($data.selected), 1)])]), _hoisted_9])]), _hoisted_10]);
 }
-;// CONCATENATED MODULE: ./examples/App.vue?vue&type=template&id=6be827c8
+;// CONCATENATED MODULE: ./examples/App.vue?vue&type=template&id=bab500c0
 
-;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[6].use[0]!./src/js/Component.vue?vue&type=template&id=470c194b
+;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[6].use[0]!./src/js/Component.vue?vue&type=template&id=ec23dd3a
 
-const Componentvue_type_template_id_470c194b_hoisted_1 = {
+const Componentvue_type_template_id_ec23dd3a_hoisted_1 = {
   class: "vue-searchable-select"
 };
-const Componentvue_type_template_id_470c194b_hoisted_2 = {
+const Componentvue_type_template_id_ec23dd3a_hoisted_2 = {
   key: 0
 };
-const Componentvue_type_template_id_470c194b_hoisted_3 = {
+const Componentvue_type_template_id_ec23dd3a_hoisted_3 = {
   key: 1
 };
-function Componentvue_type_template_id_470c194b_render(_ctx, _cache, $props, $setup, $data, $options) {
+const Componentvue_type_template_id_ec23dd3a_hoisted_4 = {
+  key: 0
+};
+const Componentvue_type_template_id_ec23dd3a_hoisted_5 = {
+  key: 1,
+  class: "vue-searchable-select-no-results"
+};
+function Componentvue_type_template_id_ec23dd3a_render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ClearX = (0,runtime_core_esm_bundler/* resolveComponent */.up)("ClearX");
 
   const _component_Caret = (0,runtime_core_esm_bundler/* resolveComponent */.up)("Caret");
 
-  return (0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("div", Componentvue_type_template_id_470c194b_hoisted_1, [_ctx.name ? ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("input", {
+  const _component_Loading = (0,runtime_core_esm_bundler/* resolveComponent */.up)("Loading");
+
+  return (0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("div", Componentvue_type_template_id_ec23dd3a_hoisted_1, [_ctx.name ? ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("input", {
     key: 0,
     type: "hidden",
     name: _ctx.name,
@@ -111,10 +120,10 @@ function Componentvue_type_template_id_470c194b_render(_ctx, _cache, $props, $se
       class: _ctx.buttonClass(i),
       onMouseover: $event => _ctx.hoverIndex = i,
       onClick: $event => _ctx.buttonClicked(i)
-    }, [option.text ? ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("span", Componentvue_type_template_id_470c194b_hoisted_2, (0,shared_esm_bundler/* toDisplayString */.zw)(option.text), 1)) : ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("span", Componentvue_type_template_id_470c194b_hoisted_3, (0,shared_esm_bundler/* toDisplayString */.zw)(option), 1))], 42, ["onMouseover", "onClick"])]);
-  }), 128))], 32)) : (0,runtime_core_esm_bundler/* createCommentVNode */.kq)("", true)]);
+    }, [option.text ? ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("span", Componentvue_type_template_id_ec23dd3a_hoisted_2, (0,shared_esm_bundler/* toDisplayString */.zw)(option.text), 1)) : ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("span", Componentvue_type_template_id_ec23dd3a_hoisted_3, (0,shared_esm_bundler/* toDisplayString */.zw)(option), 1))], 42, ["onMouseover", "onClick"])]);
+  }), 128)), _ctx.searchesInProgress > 0 ? ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("li", Componentvue_type_template_id_ec23dd3a_hoisted_4, [(0,runtime_core_esm_bundler/* createVNode */.Wm)(_component_Loading)])) : _ctx.options.length === 0 ? ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("li", Componentvue_type_template_id_ec23dd3a_hoisted_5, [(0,runtime_core_esm_bundler/* createVNode */.Wm)("span", null, (0,shared_esm_bundler/* toDisplayString */.zw)(_ctx.noResultsMessage()), 1)])) : (0,runtime_core_esm_bundler/* createCommentVNode */.kq)("", true)], 32)) : (0,runtime_core_esm_bundler/* createCommentVNode */.kq)("", true)]);
 }
-;// CONCATENATED MODULE: ./src/js/Component.vue?vue&type=template&id=470c194b
+;// CONCATENATED MODULE: ./src/js/Component.vue?vue&type=template&id=ec23dd3a
 
 ;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[6].use[0]!./src/js/Caret.vue?vue&type=template&id=f2ad39b0
 
@@ -212,8 +221,40 @@ function ClearXvue_type_template_id_84e28e86_render(_ctx, _cache, $props, $setup
 ClearXvue_type_script_lang_js.render = ClearXvue_type_template_id_84e28e86_render
 
 /* harmony default export */ const ClearX = (ClearXvue_type_script_lang_js);
+;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[6].use[0]!./src/js/Loading.vue?vue&type=template&id=2c97ca1d
+
+function Loadingvue_type_template_id_2c97ca1d_render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("div", null, [((0,runtime_core_esm_bundler/* openBlock */.wg)(true), (0,runtime_core_esm_bundler/* createBlock */.j4)(runtime_core_esm_bundler/* Fragment */.HY, null, (0,runtime_core_esm_bundler/* renderList */.Ko)(_ctx.dots + 1, n => {
+    return (0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("span", {
+      key: n
+    }, ".");
+  }), 128))]);
+}
 // EXTERNAL MODULE: ./node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js
 var reactivity_esm_bundler = __webpack_require__(262);
+;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[6].use[0]!./src/js/Loading.vue?vue&type=script&lang=js
+
+/* harmony default export */ const Loadingvue_type_script_lang_js = ((0,runtime_core_esm_bundler/* defineComponent */.aZ)({
+  setup() {
+    const dots = (0,reactivity_esm_bundler/* ref */.iH)(3);
+    let interval;
+    (0,runtime_core_esm_bundler/* onMounted */.bv)(() => interval = setInterval(() => dots.value = (dots.value + 1) % 3, 200));
+    (0,runtime_core_esm_bundler/* onUnmounted */.Ah)(() => clearInterval(interval));
+    return {
+      dots
+    };
+  }
+
+}));
+;// CONCATENATED MODULE: ./src/js/Loading.vue?vue&type=script&lang=js
+ 
+;// CONCATENATED MODULE: ./src/js/Loading.vue
+
+
+
+Loadingvue_type_script_lang_js.render = Loadingvue_type_template_id_2c97ca1d_render
+
+/* harmony default export */ const Loading = (Loadingvue_type_script_lang_js);
 // EXTERNAL MODULE: ./node_modules/lodash.debounce/index.js
 var lodash_debounce = __webpack_require__(296);
 var lodash_debounce_default = /*#__PURE__*/__webpack_require__.n(lodash_debounce);
@@ -222,11 +263,13 @@ var lodash_debounce_default = /*#__PURE__*/__webpack_require__.n(lodash_debounce
 
 
 
+
 /* harmony default export */ const Componentvue_type_script_lang_js = ((0,runtime_core_esm_bundler/* defineComponent */.aZ)({
   name: 'search-select',
   components: {
     Caret: Caret,
-    ClearX: ClearX
+    ClearX: ClearX,
+    Loading: Loading
   },
   props: {
     modelValue: {
@@ -262,13 +305,21 @@ var lodash_debounce_default = /*#__PURE__*/__webpack_require__.n(lodash_debounce
       return classes;
     },
 
-    async buttonClicked(i) {
+    buttonClicked(i) {
       this.selectedIndex = i;
       this.showOptions = false;
     },
 
     parentElement() {
       return this.$refs.searchInput.closest('.vue-searchable-select');
+    },
+
+    noResultsMessage() {
+      if (this.$t) {
+        return this.$t('vue_searchable_select.no_results');
+      } else {
+        return 'No results';
+      }
     }
 
   },
@@ -295,7 +346,6 @@ var lodash_debounce_default = /*#__PURE__*/__webpack_require__.n(lodash_debounce
 
     // This scrolls to the currently-selected option when the tray is opened.
     async showOptions(value) {
-      console.log('updated', value);
       if (!value) return;
       await this.$nextTick();
       const selected = this.parentElement().getElementsByClassName('vue-searchable-select-selected')[0];
@@ -337,11 +387,27 @@ var lodash_debounce_default = /*#__PURE__*/__webpack_require__.n(lodash_debounce
       if (selected.value && typeof selected.value === 'object') return selected.value.text;else return selected.value;
     }); // This will be called whenever the user input changes. It's debounced so
     // that we don't perform IO-heavy search operations too often.
+    //
+    // There can be race conditions when 2 requests are in-flight and the
+    // earlier one is too slow. Thus, we also have this seq number.
 
+    let searchSeq = 0;
+    let searchesInProgress = (0,reactivity_esm_bundler/* ref */.iH)(0);
     const debouncedSearch = lodash_debounce_default()(async (query, page) => {
-      options.value = await props.search(query || '', page);
+      try {
+        searchesInProgress.value += 1;
+        options.value = [];
+        const mySeq = ++searchSeq;
+        const results = await props.search(query || '', page);
+
+        if (searchSeq === mySeq) {
+          options.value = results;
+        }
+      } finally {
+        searchesInProgress.value -= 1;
+      }
     }, props.debounceTime, {
-      leading: true,
+      leading: false,
       trailing: true
     }); // This is the current page. It will increment when the user scrolls down.
     // When the search query is modified, it will be set back to 0.
@@ -361,7 +427,14 @@ var lodash_debounce_default = /*#__PURE__*/__webpack_require__.n(lodash_debounce
 
     const nextPage = async () => {
       currentPage += 1;
-      const results = await props.search(query.value || '', currentPage);
+      let results;
+
+      try {
+        searchesInProgress.value += 1;
+        results = await props.search(query.value || '', currentPage);
+      } finally {
+        searchesInProgress.value -= 1;
+      }
 
       if (results.length == 0) {
         // We don't want to search anymore if we hit an empty page.
@@ -432,7 +505,6 @@ var lodash_debounce_default = /*#__PURE__*/__webpack_require__.n(lodash_debounce
       }
 
       if (ignoreFocus.value) return;
-      console.log("showOptions = true because of focus");
       showOptions.value = true;
 
       if (options.value.length === 0) {
@@ -464,6 +536,7 @@ var lodash_debounce_default = /*#__PURE__*/__webpack_require__.n(lodash_debounce
       selected,
       options,
       showOptions,
+      searchesInProgress,
       hoverIndex,
       selectedIndex,
       selectedValue,
@@ -483,10 +556,37 @@ var lodash_debounce_default = /*#__PURE__*/__webpack_require__.n(lodash_debounce
 
 
 
-Componentvue_type_script_lang_js.render = Componentvue_type_template_id_470c194b_render
+Componentvue_type_script_lang_js.render = Componentvue_type_template_id_ec23dd3a_render
 
 /* harmony default export */ const Component = (Componentvue_type_script_lang_js);
 ;// CONCATENATED MODULE: ./src/index.js
+
+
+
+function searchableSelectInit(searchFunctions) {
+  const searchableSelects = document.querySelectorAll('input[data-searchable-select]');
+  searchableSelects.forEach(element => {
+    const parent = element.parentNode;
+    const appContainer = document.createElement('div');
+    const search = searchFunctions[element.dataset.searchableSelect];
+    const name = element.name;
+    const modelValue = (0,reactivity_esm_bundler/* ref */.iH)(null);
+
+    try {
+      modelValue.value = JSON.parse(element.value);
+    } catch (_) {
+      modelValue.value = element.value;
+    }
+
+    const app = (0,runtime_dom_esm_bundler/* createApp */.ri)(Component, {
+      name,
+      search,
+      modelValue
+    });
+    parent.replaceChild(appContainer, element);
+    app.mount(appContainer);
+  });
+}
 
 /* harmony default export */ const src = (Component);
 
@@ -511,7 +611,9 @@ Componentvue_type_script_lang_js.render = Componentvue_type_template_id_470c194b
     search(query, page) {
       console.log("Starting mock search of", query, 'page', page);
       return new Promise((resolve, _) => {
-        if (query) {
+        if (query === 'empty') {
+          setTimeout(() => resolve([]), 500);
+        } else if (query) {
           if (page >= 10) return resolve([]);
           setTimeout(() => {
             resolve([page * 10 + 0, page * 10 + 1, page * 10 + 2, page * 10 + 3, page * 10 + 4, page * 10 + 5].map(x => ({
@@ -547,8 +649,51 @@ Appvue_type_script_lang_js.render = render
 
 
 
-const app = (0,runtime_dom_esm_bundler/* createApp */.ri)(App);
-app.mount('#app');
+
+
+if (document.getElementById('app')) {
+  const app = (0,runtime_dom_esm_bundler/* createApp */.ri)(App);
+  app.mount('#app');
+} else {
+  const testform = document.getElementById('test-form');
+
+  testform.onsubmit = event => {
+    event.preventDefault();
+    const formdata = new FormData(testform);
+    const obj = {};
+
+    for (const key of formdata.keys()) {
+      obj[key] = formdata.get(key);
+    }
+
+    console.log(obj);
+    document.getElementById('form-data-dump').textContent = JSON.stringify(obj, ' ', 2);
+  };
+
+  searchableSelectInit({
+    mySearch(query, page) {
+      console.log("Starting mock search of", query, 'page', page);
+      return new Promise((resolve, _) => {
+        if (query === 'empty') {
+          setTimeout(() => resolve([]), 500);
+        } else if (query) {
+          if (page >= 10) return resolve([]);
+          setTimeout(() => {
+            resolve([page * 10 + 0, page * 10 + 1, page * 10 + 2, page * 10 + 3, page * 10 + 4, page * 10 + 5].map(x => ({
+              value: `${x}`,
+              text: `${query.toUpperCase()} ${x}`
+            })));
+          }, 1000);
+        } else {
+          setTimeout(() => {
+            resolve([page * 10 + 0, page * 10 + 1, page * 10 + 2, page * 10 + 3, page * 10 + 4, page * 10 + 5].map(x => `<nothing> ${x}`));
+          }, 200);
+        }
+      });
+    }
+
+  });
+}
 
 /***/ })
 
@@ -557,7 +702,7 @@ app.mount('#app');
 /******/ "use strict";
 /******/ 
 /******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-/******/ __webpack_require__.O(0, [736], () => (__webpack_exec__(920)));
+/******/ __webpack_require__.O(0, [736], () => (__webpack_exec__(192)));
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ }
 ]);
