@@ -11,11 +11,11 @@ function searchableSelectInit(searchFunctions) {
     const search = searchFunctions[element.dataset.searchableSelect];
     const name = element.name;
 
-    const modelValue = ref(null);
+    let modelValue = null;
     try {
-      modelValue.value = JSON.parse(element.value);
+      modelValue = JSON.parse(element.value);
     } catch (_) {
-      modelValue.value = element.value;
+      modelValue = element.value;
     }
 
     const app = createApp(SearchableSelect, { name, search, modelValue });
