@@ -35,9 +35,14 @@
     />
 
     <!--
+      The X will clear the input box if you click it.
+    -->
+    <ClearX v-if="showOptions" @click="query = ''" />
+
+    <!--
       This caret is just eye candy, signalling that this is a select box.
     -->
-    <Caret @click="showOptions = true" />
+    <Caret v-else @click="showOptions = true" />
 
     <!--
       This ul tag is the options tray. There's a lot of wacky logic in the
@@ -65,12 +70,13 @@
 
 <script>
 import Caret from './Caret.vue';
+import ClearX from './ClearX.vue';
 import { defineComponent, watch, ref, computed } from 'vue';
 import debounce from 'lodash.debounce';
 
 export default defineComponent({
   name: 'search-select',
-  components: { Caret },
+  components: { Caret, ClearX },
   props: {
     modelValue: {
       type: [Object, String],
