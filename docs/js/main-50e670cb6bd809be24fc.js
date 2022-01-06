@@ -1,6 +1,6 @@
 (self["webpackChunkvue_searchable_select"] = self["webpackChunkvue_searchable_select"] || []).push([[179],{
 
-/***/ 881:
+/***/ 920:
 /***/ ((__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -11,7 +11,7 @@ var runtime_dom_esm_bundler = __webpack_require__(963);
 var runtime_core_esm_bundler = __webpack_require__(252);
 // EXTERNAL MODULE: ./node_modules/@vue/shared/dist/shared.esm-bundler.js
 var shared_esm_bundler = __webpack_require__(577);
-;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[6].use[0]!./examples/App.vue?vue&type=template&id=7a8e9296
+;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[6].use[0]!./examples/App.vue?vue&type=template&id=6be827c8
 
 
 const _hoisted_1 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createStaticVNode */.uE)("<nav class=\"navbar navbar-expand-lg navbar navbar-light bg-white shadow-sm mb-3\"><span class=\"navbar-brand mb-0\">SearchableSelect demo</span><ul class=\"navbar-nav ml-auto\"><li class=\"nav-item\"><a class=\"nav-link\" href=\"https://github.com/degica/vue-searchable-select\" target=\"_blank\"> GitHub</a></li></ul></nav>", 1);
@@ -35,7 +35,7 @@ const _hoisted_7 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createVNode */.Wm)
 
 const _hoisted_8 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createTextVNode */.Uk)(" Selected: ");
 
-const _hoisted_9 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createStaticVNode */.uE)("<aside class=\"col-md-4 mb-3\"><div class=\"card\"><div class=\"card-header\"> Links</div><div class=\"card-body\"><ul><li><a href=\"https://github.com/ankurk91/vue-toast-notification\" target=\"_blank\">GitHub</a></li><li><a href=\"https://www.npmjs.com/package/vue-toast-notification\" target=\"_blank\">npm</a></li></ul></div></div></aside>", 1);
+const _hoisted_9 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createStaticVNode */.uE)("<aside class=\"col-md-4 mb-3\"><div class=\"card\"><div class=\"card-header\"> Links</div><div class=\"card-body\"><ul><li><a href=\"https://github.com/degica/vue-searchable-select\" target=\"_blank\">GitHub</a></li><li><a href=\"https://www.npmjs.com/package/vue-searchable-select\" target=\"_blank\">npm</a></li></ul></div></div></aside>", 1);
 
 const _hoisted_10 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createVNode */.Wm)("footer", {
   class: "text-center text-muted small mb-3"
@@ -54,23 +54,25 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     search: $options.search
   }, null, 8, ["modelValue", "search"])]), _hoisted_7], 32), _hoisted_8, (0,runtime_core_esm_bundler/* createVNode */.Wm)("pre", null, (0,shared_esm_bundler/* toDisplayString */.zw)($data.selected), 1)])]), _hoisted_9])]), _hoisted_10]);
 }
-;// CONCATENATED MODULE: ./examples/App.vue?vue&type=template&id=7a8e9296
+;// CONCATENATED MODULE: ./examples/App.vue?vue&type=template&id=6be827c8
 
-;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[6].use[0]!./src/js/Component.vue?vue&type=template&id=62088723
+;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[6].use[0]!./src/js/Component.vue?vue&type=template&id=470c194b
 
-const Componentvue_type_template_id_62088723_hoisted_1 = {
+const Componentvue_type_template_id_470c194b_hoisted_1 = {
   class: "vue-searchable-select"
 };
-const Componentvue_type_template_id_62088723_hoisted_2 = {
+const Componentvue_type_template_id_470c194b_hoisted_2 = {
   key: 0
 };
-const Componentvue_type_template_id_62088723_hoisted_3 = {
+const Componentvue_type_template_id_470c194b_hoisted_3 = {
   key: 1
 };
-function Componentvue_type_template_id_62088723_render(_ctx, _cache, $props, $setup, $data, $options) {
+function Componentvue_type_template_id_470c194b_render(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_ClearX = (0,runtime_core_esm_bundler/* resolveComponent */.up)("ClearX");
+
   const _component_Caret = (0,runtime_core_esm_bundler/* resolveComponent */.up)("Caret");
 
-  return (0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("div", Componentvue_type_template_id_62088723_hoisted_1, [_ctx.name ? ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("input", {
+  return (0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("div", Componentvue_type_template_id_470c194b_hoisted_1, [_ctx.name ? ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("input", {
     key: 0,
     type: "hidden",
     name: _ctx.name,
@@ -81,22 +83,27 @@ function Componentvue_type_template_id_62088723_render(_ctx, _cache, $props, $se
     style: _ctx.showOptions ? {} : {
       display: 'none'
     },
+    placeholder: _ctx.selectedDisplay,
     onKeydown: _cache[2] || (_cache[2] = $event => _ctx.inputKeyHandler($event)),
     onFocus: _cache[3] || (_cache[3] = $event => _ctx.inputFocusHandler($event)),
     onBlur: _cache[4] || (_cache[4] = $event => _ctx.inputBlurHandler($event)),
     ref: "searchInput"
-  }, null, 36), [[runtime_dom_esm_bundler/* vModelText */.nr, _ctx.query]]), (0,runtime_core_esm_bundler/* createVNode */.Wm)("input", {
+  }, null, 44, ["placeholder"]), [[runtime_dom_esm_bundler/* vModelText */.nr, _ctx.query]]), (0,runtime_core_esm_bundler/* createVNode */.Wm)("input", {
     type: "text",
     value: _ctx.selectedDisplay,
     style: _ctx.showOptions ? {
       display: 'none'
     } : {},
     onFocus: _cache[5] || (_cache[5] = $event => _ctx.showOptions = true)
-  }, null, 44, ["value"]), (0,runtime_core_esm_bundler/* createVNode */.Wm)(_component_Caret, {
-    onClick: _cache[6] || (_cache[6] = $event => _ctx.showOptions = true)
-  }), _ctx.showOptions ? ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("ul", {
+  }, null, 44, ["value"]), _ctx.showOptions ? ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)(_component_ClearX, {
     key: 1,
-    onScroll: _cache[7] || (_cache[7] = $event => _ctx.scrollHandler($event))
+    onClick: _cache[6] || (_cache[6] = $event => _ctx.query = '')
+  })) : ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)(_component_Caret, {
+    key: 2,
+    onClick: _cache[7] || (_cache[7] = $event => _ctx.showOptions = true)
+  })), _ctx.showOptions ? ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("ul", {
+    key: 3,
+    onScroll: _cache[8] || (_cache[8] = $event => _ctx.scrollHandler($event))
   }, [((0,runtime_core_esm_bundler/* openBlock */.wg)(true), (0,runtime_core_esm_bundler/* createBlock */.j4)(runtime_core_esm_bundler/* Fragment */.HY, null, (0,runtime_core_esm_bundler/* renderList */.Ko)(_ctx.options, (option, i) => {
     return (0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("li", {
       key: option.value ? option.value : option
@@ -104,20 +111,20 @@ function Componentvue_type_template_id_62088723_render(_ctx, _cache, $props, $se
       class: _ctx.buttonClass(i),
       onMouseover: $event => _ctx.hoverIndex = i,
       onClick: $event => _ctx.buttonClicked(i)
-    }, [option.text ? ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("span", Componentvue_type_template_id_62088723_hoisted_2, (0,shared_esm_bundler/* toDisplayString */.zw)(option.text), 1)) : ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("span", Componentvue_type_template_id_62088723_hoisted_3, (0,shared_esm_bundler/* toDisplayString */.zw)(option), 1))], 42, ["onMouseover", "onClick"])]);
+    }, [option.text ? ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("span", Componentvue_type_template_id_470c194b_hoisted_2, (0,shared_esm_bundler/* toDisplayString */.zw)(option.text), 1)) : ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("span", Componentvue_type_template_id_470c194b_hoisted_3, (0,shared_esm_bundler/* toDisplayString */.zw)(option), 1))], 42, ["onMouseover", "onClick"])]);
   }), 128))], 32)) : (0,runtime_core_esm_bundler/* createCommentVNode */.kq)("", true)]);
 }
-;// CONCATENATED MODULE: ./src/js/Component.vue?vue&type=template&id=62088723
+;// CONCATENATED MODULE: ./src/js/Component.vue?vue&type=template&id=470c194b
 
-;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[6].use[0]!./src/js/Caret.vue?vue&type=template&id=baa83688
+;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[6].use[0]!./src/js/Caret.vue?vue&type=template&id=f2ad39b0
 
 
-const Caretvue_type_template_id_baa83688_hoisted_1 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createVNode */.Wm)("path", {
+const Caretvue_type_template_id_f2ad39b0_hoisted_1 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createVNode */.Wm)("path", {
   d: "M0 0.656738L11.3137 0.656738L5.65685 6.31359L0 0.656738Z",
   fill: "#172E44"
 }, null, -1);
 
-function Caretvue_type_template_id_baa83688_render(_ctx, _cache, $props, $setup, $data, $options) {
+function Caretvue_type_template_id_f2ad39b0_render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("svg", {
     onClick: _cache[1] || (_cache[1] = (...args) => _ctx.onClick && _ctx.onClick(...args)),
     class: "vue-searchable-select-caret",
@@ -126,9 +133,9 @@ function Caretvue_type_template_id_baa83688_render(_ctx, _cache, $props, $setup,
     viewBox: "0 0 12 7",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg"
-  }, [Caretvue_type_template_id_baa83688_hoisted_1]);
+  }, [Caretvue_type_template_id_f2ad39b0_hoisted_1]);
 }
-;// CONCATENATED MODULE: ./src/js/Caret.vue?vue&type=template&id=baa83688
+;// CONCATENATED MODULE: ./src/js/Caret.vue?vue&type=template&id=f2ad39b0
 
 ;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[6].use[0]!./src/js/Caret.vue?vue&type=script&lang=js
 
@@ -153,9 +160,58 @@ function Caretvue_type_template_id_baa83688_render(_ctx, _cache, $props, $setup,
 
 
 
-Caretvue_type_script_lang_js.render = Caretvue_type_template_id_baa83688_render
+Caretvue_type_script_lang_js.render = Caretvue_type_template_id_f2ad39b0_render
 
 /* harmony default export */ const Caret = (Caretvue_type_script_lang_js);
+;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[6].use[0]!./src/js/ClearX.vue?vue&type=template&id=84e28e86
+
+
+const ClearXvue_type_template_id_84e28e86_hoisted_1 = /*#__PURE__*/(0,runtime_core_esm_bundler/* createVNode */.Wm)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M5.50008 6.91429L9.29297 10.7072L10.7072 9.29297L6.91429 5.50008L10.7072 1.70718L9.29297 0.292969L5.50008 4.08586L1.70718 0.292969L0.292969 1.70718L4.08586 5.50008L0.292969 9.29297L1.70718 10.7072L5.50008 6.91429Z",
+  fill: "#C1CDD8"
+}, null, -1);
+
+function ClearXvue_type_template_id_84e28e86_render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)("svg", {
+    class: "vue-searchable-select-caret",
+    onClick: _cache[1] || (_cache[1] = (...args) => _ctx.onClick && _ctx.onClick(...args)),
+    width: "11",
+    height: "11",
+    viewBox: "0 0 11 11",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, [ClearXvue_type_template_id_84e28e86_hoisted_1]);
+}
+;// CONCATENATED MODULE: ./src/js/ClearX.vue?vue&type=template&id=84e28e86
+
+;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[6].use[0]!./src/js/ClearX.vue?vue&type=script&lang=js
+
+/* harmony default export */ const ClearXvue_type_script_lang_js = ((0,runtime_core_esm_bundler/* defineComponent */.aZ)({
+  emits: ['click'],
+
+  setup(_, {
+    emit
+  }) {
+    return {
+      onClick() {
+        emit('click');
+      }
+
+    };
+  }
+
+}));
+;// CONCATENATED MODULE: ./src/js/ClearX.vue?vue&type=script&lang=js
+ 
+;// CONCATENATED MODULE: ./src/js/ClearX.vue
+
+
+
+ClearXvue_type_script_lang_js.render = ClearXvue_type_template_id_84e28e86_render
+
+/* harmony default export */ const ClearX = (ClearXvue_type_script_lang_js);
 // EXTERNAL MODULE: ./node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js
 var reactivity_esm_bundler = __webpack_require__(262);
 // EXTERNAL MODULE: ./node_modules/lodash.debounce/index.js
@@ -165,10 +221,12 @@ var lodash_debounce_default = /*#__PURE__*/__webpack_require__.n(lodash_debounce
 
 
 
+
 /* harmony default export */ const Componentvue_type_script_lang_js = ((0,runtime_core_esm_bundler/* defineComponent */.aZ)({
   name: 'search-select',
   components: {
-    Caret: Caret
+    Caret: Caret,
+    ClearX: ClearX
   },
   props: {
     modelValue: {
@@ -259,27 +317,25 @@ var lodash_debounce_default = /*#__PURE__*/__webpack_require__.n(lodash_debounce
     // the user.
     const options = (0,reactivity_esm_bundler/* ref */.iH)([]); // Index of the currently hovered element. Pressing "enter" will select it.
 
-    const hoverIndex = (0,reactivity_esm_bundler/* ref */.iH)(0); // Index of the currently selected element.
+    const hoverIndex = (0,reactivity_esm_bundler/* ref */.iH)(0);
+    (0,runtime_core_esm_bundler/* watch */.YP)(options, value => {
+      if (hoverIndex.value >= value.length) hoverIndex.value = 0;
+    }); // Index of the currently selected element.
 
     const selectedIndex = (0,reactivity_esm_bundler/* ref */.iH)(null); // Raw selected object. Might be a string value or an object with 'value' and 'text' keys.
 
-    const selected = (0,runtime_core_esm_bundler/* computed */.Fl)(() => typeof selectedIndex.value === 'number' ? options.value[selectedIndex.value] : null); // This is the "value" of the selected object.
+    const selected = (0,runtime_core_esm_bundler/* computed */.Fl)(() => {
+      if (typeof selectedIndex.value === 'number') return options.value[selectedIndex.value];else return props.modelValue;
+    });
+    (0,runtime_core_esm_bundler/* watch */.YP)(selected, value => emit('update:modelValue', value)); // This is the "value" of the selected object.
 
     const selectedValue = (0,runtime_core_esm_bundler/* computed */.Fl)(() => {
-      if (selectedIndex.value === null) {
-        if (props.modelValue && typeof props.modelValue === 'object') return props.modelValue['value'];else return props.modelValue;
-      } else if (selected.value && typeof selected.value === 'object') return selected.value.value;else return selected.value;
+      if (selected.value && typeof selected.value === 'object') return selected.value.value;else return selected.value;
     }); // This is the user-facing display text of the selected object.
 
     const selectedDisplay = (0,runtime_core_esm_bundler/* computed */.Fl)(() => {
-      if (selectedIndex.value === null) {
-        if (props.modelValue && typeof props.modelValue === 'object') return props.modelValue['text'];else return props.modelValue;
-      } else if (selected.value && typeof selected.value === 'object') return selected.value.text;else return selected.value;
-    });
-    (0,runtime_core_esm_bundler/* watch */.YP)(options, value => {
-      if (hoverIndex.value >= value.length) hoverIndex.value = 0;
-    });
-    (0,runtime_core_esm_bundler/* watch */.YP)(selectedValue, value => emit('update:modelValue', value)); // This will be called whenever the user input changes. It's debounced so
+      if (selected.value && typeof selected.value === 'object') return selected.value.text;else return selected.value;
+    }); // This will be called whenever the user input changes. It's debounced so
     // that we don't perform IO-heavy search operations too often.
 
     const debouncedSearch = lodash_debounce_default()(async (query, page) => {
@@ -427,7 +483,7 @@ var lodash_debounce_default = /*#__PURE__*/__webpack_require__.n(lodash_debounce
 
 
 
-Componentvue_type_script_lang_js.render = Componentvue_type_template_id_62088723_render
+Componentvue_type_script_lang_js.render = Componentvue_type_template_id_470c194b_render
 
 /* harmony default export */ const Component = (Componentvue_type_script_lang_js);
 ;// CONCATENATED MODULE: ./src/index.js
@@ -501,7 +557,7 @@ app.mount('#app');
 /******/ "use strict";
 /******/ 
 /******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-/******/ __webpack_require__.O(0, [736], () => (__webpack_exec__(881)));
+/******/ __webpack_require__.O(0, [736], () => (__webpack_exec__(920)));
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ }
 ]);
