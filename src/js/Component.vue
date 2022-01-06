@@ -15,6 +15,7 @@
       type="text"
       v-model="query"
       :style="showOptions ? {} : { display: 'none' }"
+      :placeholder="selectedDisplay"
       @keydown="inputKeyHandler($event)"
       @focus="inputFocusHandler($event)"
       @blur="inputBlurHandler($event)"
@@ -34,9 +35,14 @@
     />
 
     <!--
+      The X will clear the input box if you click it.
+    -->
+    <ClearX v-if="showOptions" @click="query = ''" />
+
+    <!--
       This caret is just eye candy, signalling that this is a select box.
     -->
-    <Caret @click="showOptions = true" />
+    <Caret v-else @click="showOptions = true" />
 
     <!--
       This ul tag is the options tray. There's a lot of wacky logic in the
@@ -64,12 +70,13 @@
 
 <script>
 import Caret from './Caret.vue';
+import ClearX from './ClearX.vue';
 import { defineComponent, watch, ref, computed } from 'vue';
 import debounce from 'lodash.debounce';
 
 export default defineComponent({
   name: 'search-select',
-  components: { Caret },
+  components: { Caret, ClearX },
   props: {
     modelValue: {
       type: [Object, String],
@@ -154,23 +161,25 @@ export default defineComponent({
 
     // Index of the currently hovered element. Pressing "enter" will select it.
     const hoverIndex = ref(0);
+    watch(options, value => {
+      if (hoverIndex.value >= value.length) hoverIndex.value = 0
+    });
 
     // Index of the currently selected element.
     const selectedIndex = ref(null);
 
     // Raw selected object. Might be a string value or an object with 'value' and 'text' keys.
-    const selected = computed(() => (
-      typeof(selectedIndex.value) === 'number' ? options.value[selectedIndex.value] : null
-    ));
+    const selected = computed(() => {
+      if (typeof(selectedIndex.value) === 'number')
+        return options.value[selectedIndex.value];
+      else
+        return props.modelValue;
+    });
+    watch(selected, value => emit('update:modelValue', value));
 
     // This is the "value" of the selected object.
     const selectedValue = computed(() => {
-      if (selectedIndex.value === null)
-        if (props.modelValue && typeof(props.modelValue) === 'object')
-          return props.modelValue['value'];
-        else
-          return props.modelValue;
-      else if (selected.value && typeof(selected.value) === 'object')
+      if (selected.value && typeof(selected.value) === 'object')
         return selected.value.value;
       else
         return selected.value;
@@ -178,22 +187,11 @@ export default defineComponent({
 
     // This is the user-facing display text of the selected object.
     const selectedDisplay = computed(() => {
-      if (selectedIndex.value === null)
-        if (props.modelValue && typeof(props.modelValue) === 'object')
-          return props.modelValue['text'];
-        else
-          return props.modelValue;
-      else if (selected.value && typeof(selected.value) === 'object')
+      if (selected.value && typeof(selected.value) === 'object')
         return selected.value.text;
       else
         return selected.value;
     });
-
-    watch(options, value => {
-      if (hoverIndex.value >= value.length) hoverIndex.value = 0
-    });
-
-    watch(selectedValue, value => emit('update:modelValue', value));
 
     // This will be called whenever the user input changes. It's debounced so
     // that we don't perform IO-heavy search operations too often.
