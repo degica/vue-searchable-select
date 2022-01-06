@@ -64,6 +64,13 @@
           </span>
         </button>
       </li>
+
+      <li v-if="searchesInProgress > 0">
+        <Loading />
+      </li>
+      <li v-else-if="options.length === 0" class='vue-searchable-select-no-results'>
+        <span>{{ noResultsMessage() }}</span>
+      </li>
     </ul>
   </div>
 </template>
@@ -71,12 +78,13 @@
 <script>
 import Caret from './Caret.vue';
 import ClearX from './ClearX.vue';
+import Loading from './Loading.vue';
 import { defineComponent, watch, ref, computed } from 'vue';
 import debounce from 'lodash.debounce';
 
 export default defineComponent({
   name: 'search-select',
-  components: { Caret, ClearX },
+  components: { Caret, ClearX, Loading },
   props: {
     modelValue: {
       type: [Object, String],
@@ -108,13 +116,21 @@ export default defineComponent({
       return classes;
     },
 
-    async buttonClicked(i) {
+    buttonClicked(i) {
       this.selectedIndex = i;
       this.showOptions = false;
     },
 
     parentElement() {
       return this.$refs.searchInput.closest('.vue-searchable-select');
+    },
+
+    noResultsMessage() {
+      if (this.$t) {
+        return this.$t('vue_searchable_select.no_results');
+      } else {
+        return 'No results';
+      }
     }
   },
   watch: {
@@ -141,7 +157,6 @@ export default defineComponent({
 
     // This scrolls to the currently-selected option when the tray is opened.
     async showOptions(value) {
-      console.log('updated', value);
       if (!value) return;
 
       await this.$nextTick();
@@ -195,13 +210,29 @@ export default defineComponent({
 
     // This will be called whenever the user input changes. It's debounced so
     // that we don't perform IO-heavy search operations too often.
+    //
+    // There can be race conditions when 2 requests are in-flight and the
+    // earlier one is too slow. Thus, we also have this seq number.
+    let searchSeq = 0;
+    let searchesInProgress = ref(0);
     const debouncedSearch = debounce(
       async (query, page) => {
-        options.value = await props.search(query || '', page);
+        try {
+          searchesInProgress.value += 1;
+          options.value = [];
+          const mySeq = (++searchSeq);
+          const results = await props.search(query || '', page);
+
+          if (searchSeq === mySeq) {
+            options.value = results;
+          }
+        } finally {
+          searchesInProgress.value -= 1;
+        }
       },
       props.debounceTime,
       {
-        leading: true,
+        leading: false,
         trailing: true
       }
     );
@@ -227,7 +258,13 @@ export default defineComponent({
     watch(query, () => lastPageEmpty = false);
     const nextPage = async () => {
       currentPage += 1;
-      const results = await props.search(query.value || '', currentPage);
+      let results;
+      try {
+        searchesInProgress.value += 1;
+        results = await props.search(query.value || '', currentPage);
+      } finally {
+        searchesInProgress.value -= 1;
+      }
 
       if (results.length == 0) {
         // We don't want to search anymore if we hit an empty page.
@@ -300,7 +337,6 @@ export default defineComponent({
       }
       if (ignoreFocus.value) return;
 
-      console.log("showOptions = true because of focus");
       showOptions.value = true;
 
       if (options.value.length === 0) {
@@ -332,6 +368,7 @@ export default defineComponent({
       selected,
       options,
       showOptions,
+      searchesInProgress,
       hoverIndex,
       selectedIndex,
       selectedValue,
