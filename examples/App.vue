@@ -6,6 +6,8 @@
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/degica/vue-searchable-select"
              target="_blank"> GitHub</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="/vueless.html"> No Vue app</a></li>
       </ul>
     </nav>
     <main class="container">

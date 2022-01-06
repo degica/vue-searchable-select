@@ -108,6 +108,20 @@ module.exports = {
         minifyURLs: isProduction,
       }
     }),
+    new HtmlWebpackPlugin({
+      inject: true,
+      hash: false,
+      template: './examples/vueless.html',
+      filename: 'vueless.html',
+      minify: {
+        removeComments: isProduction,
+        collapseWhitespace: isProduction,
+        removeAttributeQuotes: isProduction,
+        minifyJS: isProduction,
+        minifyCSS: isProduction,
+        minifyURLs: isProduction,
+      }
+    }),
     new VueLoaderPlugin(),
   ],
   devServer: {

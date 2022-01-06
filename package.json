@@ -1,6 +1,6 @@
 {
   "name": "vue-searchable-select",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Pure Vue3 version of the 'searchable select box' widget",
   "main": "dist/index.js",
   "types": "./types/searchable-select.d.ts",
