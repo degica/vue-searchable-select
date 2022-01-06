@@ -185,10 +185,12 @@ export default defineComponent({
 
     // Raw selected object. Might be a string value or an object with 'value' and 'text' keys.
     const selected = computed(() => {
-      if (typeof(selectedIndex.value) === 'number')
+      if (typeof(selectedIndex.value) === 'number' && selectedIndex.value < options.value.length) {
         return options.value[selectedIndex.value];
-      else
+      }
+      else {
         return props.modelValue;
+      }
     });
     watch(selected, value => emit('update:modelValue', value));
 
