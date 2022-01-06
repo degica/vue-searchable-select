@@ -41,8 +41,8 @@
             <div class="card-header"> Links</div>
             <div class="card-body">
               <ul>
-                <li><a href="https://github.com/ankurk91/vue-toast-notification" target="_blank">GitHub</a></li>
-                <li><a href="https://www.npmjs.com/package/vue-toast-notification" target="_blank">npm</a></li>
+                <li><a href="https://github.com/degica/vue-searchable-select" target="_blank">GitHub</a></li>
+                <li><a href="https://www.npmjs.com/package/vue-searchable-select" target="_blank">npm</a></li>
               </ul>
             </div>
           </div>
