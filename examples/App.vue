@@ -31,10 +31,12 @@
                   <option>three</option>
                 </select>
               </label>
-            </form>
 
-            Selected:
-            <pre>{{ selected }}</pre>
+              Selected:
+              <pre>{{ selected }}</pre>
+
+              <button type="button" @click="resetSelection">Reset selection externally</button>
+            </form>
           </div>
         </div>
 
@@ -86,6 +88,10 @@ export default {
   },
   components: { SearchableSelect },
   methods: {
+    resetSelection() {
+      this.selected = null;
+    },
+
     search(query, page) {
       console.log("Starting mock search of", query, 'page', page);
       return new Promise((resolve, _) => {

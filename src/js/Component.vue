@@ -87,7 +87,6 @@ export default defineComponent({
   components: { Caret, ClearX, Loading },
   props: {
     modelValue: {
-      type: [Object, String],
       required: true
     },
     search: {
@@ -193,6 +192,12 @@ export default defineComponent({
       }
     });
     watch(selected, value => emit('update:modelValue', value));
+    watch(() => props.modelValue, value => {
+      if (value === null) {
+        selectedIndex.value = null;
+        options.value = [];
+      }
+    });
 
     // This is the "value" of the selected object.
     const selectedValue = computed(() => {
