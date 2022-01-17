@@ -40,9 +40,9 @@
     <ClearX v-if="showOptions" @click="query = ''" />
 
     <!--
-      This caret is just eye candy, signalling that this is a select box.
+      This chevron is just eye candy, signalling that this is a select box.
     -->
-    <Caret v-else @click="showOptions = true" />
+    <Chevron v-else @click="showOptions = true" />
 
     <!--
       This ul tag is the options tray. There's a lot of wacky logic in the
@@ -76,7 +76,7 @@
 </template>
 
 <script>
-import Caret from './Caret.vue';
+import Chevron from './Chevron.vue';
 import ClearX from './ClearX.vue';
 import Loading from './Loading.vue';
 import { defineComponent, watch, ref, computed } from 'vue';
@@ -84,7 +84,7 @@ import debounce from 'lodash.debounce';
 
 export default defineComponent({
   name: 'search-select',
-  components: { Caret, ClearX, Loading },
+  components: { Chevron, ClearX, Loading },
   props: {
     modelValue: {
       required: true
