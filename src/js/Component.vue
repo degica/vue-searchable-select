@@ -34,16 +34,16 @@
       @focus="showOptions = true"
     />
 
-    <div class='vue-searchable-select-icon'>
+    <div class='vue-searchable-select-icon' @click="iconClick">
       <!--
         The X will clear the input box if you click it.
       -->
-      <ClearX v-if="showOptions" @click="query = ''" />
+      <ClearX v-if="showOptions" />
 
       <!--
         This chevron is just eye candy, signalling that this is a select box.
       -->
-      <Chevron v-else @click="showOptions = true" />
+      <Chevron v-else />
     </div>
 
     <!--
@@ -131,6 +131,15 @@ export default defineComponent({
         return this.$t('vue_searchable_select.no_results');
       } else {
         return 'No results';
+      }
+    },
+
+    iconClick() {
+      if (this.showOptions) {
+        this.query = '';
+      }
+      else {
+        this.showOptions = true;
       }
     }
   },
