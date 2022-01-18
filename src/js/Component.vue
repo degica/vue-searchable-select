@@ -34,15 +34,17 @@
       @focus="showOptions = true"
     />
 
-    <!--
-      The X will clear the input box if you click it.
-    -->
-    <ClearX v-if="showOptions" @click="query = ''" />
+    <div class='vue-searchable-select-icon'>
+      <!--
+        The X will clear the input box if you click it.
+      -->
+      <ClearX v-if="showOptions" @click="query = ''" />
 
-    <!--
-      This chevron is just eye candy, signalling that this is a select box.
-    -->
-    <Chevron v-else @click="showOptions = true" />
+      <!--
+        This chevron is just eye candy, signalling that this is a select box.
+      -->
+      <Chevron v-else @click="showOptions = true" />
+    </div>
 
     <!--
       This ul tag is the options tray. There's a lot of wacky logic in the
